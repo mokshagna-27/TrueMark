@@ -17,8 +17,7 @@ venv.bak/
 
 # Environment variables and secrets
 .env
-.env.local
-.env.*.local
+.env.*
 !.env.example
 
 # Local Database files
@@ -35,3 +34,8 @@ venv.bak/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+build/
