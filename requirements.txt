@@ -1,4 +1,4 @@
-# Web Framework and API Server
+﻿# Web Framework and API Server
 fastapi>=0.110.0
 uvicorn[standard]>=0.28.0
 
@@ -18,3 +18,5 @@ httpx>=0.27.0
 # Testing Framework
 pytest>=8.1.1
 pytest-asyncio>=0.23.6
+
+# Evaluation module uses the existing pytest dependency.
