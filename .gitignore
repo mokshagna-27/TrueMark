@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python bytecode and cache
 __pycache__/
 *.py[cod]
@@ -39,3 +40,16 @@ Thumbs.db
 node_modules/
 dist/
 build/
+=======
+﻿__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+evaluation/reports/
+evaluation_backup*/
+*.backup
+>>>>>>> eea379f (Add TrueMark analyzer and evaluation improvements)

@@ -1,7 +1,7 @@
-TrueMark — Brand Consistency AI
+﻿TrueMark ΓÇö Brand Consistency AI
 
 Team Name: The Innovators
-Hackathon: Inkloom AI — Round 2
+Hackathon: Inkloom AI ΓÇö Round 2
 Project Type: AI-powered Brand Governance Platform
 Status: In Development
 
@@ -135,49 +135,49 @@ The following is the target repository structure, based on the backend files alr
 
 ```text
 TrueMark/
-├── README.md
-├── .gitignore
-├── .env.example
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── api/
-│   │   │   ├── __init__.py
-│   │   │   ├── router.py
-│   │   │   └── analysis.py
-│   │   ├── core/
-│   │   │   └── config.py
-│   │   ├── models/
-│   │   ├── schemas/
-│   │   ├── services/
-│   │   │   ├── brand_rules.py
-│   │   │   ├── consistency.py
-│   │   │   ├── ai_analysis.py
-│   │   │   └── scoring.py
-│   │   ├── db/
-│   │   └── utils/
-│   ├── tests/
-│   │   ├── test_analysis.py
-│   │   └── test_brand_rules.py
-│   └── uploads/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── types/
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── tsconfig.json
-├── docker-compose.yml
-└── Dockerfile
+Γö£ΓöÇΓöÇ README.md
+Γö£ΓöÇΓöÇ .gitignore
+Γö£ΓöÇΓöÇ .env.example
+Γö£ΓöÇΓöÇ backend/
+Γöé   Γö£ΓöÇΓöÇ main.py
+Γöé   Γö£ΓöÇΓöÇ requirements.txt
+Γöé   Γö£ΓöÇΓöÇ app/
+Γöé   Γöé   Γö£ΓöÇΓöÇ __init__.py
+Γöé   Γöé   Γö£ΓöÇΓöÇ api/
+Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ __init__.py
+Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ router.py
+Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ analysis.py
+Γöé   Γöé   Γö£ΓöÇΓöÇ core/
+Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ config.py
+Γöé   Γöé   Γö£ΓöÇΓöÇ models/
+Γöé   Γöé   Γö£ΓöÇΓöÇ schemas/
+Γöé   Γöé   Γö£ΓöÇΓöÇ services/
+Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ brand_rules.py
+Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ consistency.py
+Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ ai_analysis.py
+Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ scoring.py
+Γöé   Γöé   Γö£ΓöÇΓöÇ db/
+Γöé   Γöé   ΓööΓöÇΓöÇ utils/
+Γöé   Γö£ΓöÇΓöÇ tests/
+Γöé   Γöé   Γö£ΓöÇΓöÇ test_analysis.py
+Γöé   Γöé   ΓööΓöÇΓöÇ test_brand_rules.py
+Γöé   ΓööΓöÇΓöÇ uploads/
+Γö£ΓöÇΓöÇ frontend/
+Γöé   Γö£ΓöÇΓöÇ public/
+Γöé   Γö£ΓöÇΓöÇ src/
+Γöé   Γöé   Γö£ΓöÇΓöÇ components/
+Γöé   Γöé   Γö£ΓöÇΓöÇ pages/
+Γöé   Γöé   Γö£ΓöÇΓöÇ services/
+Γöé   Γöé   Γö£ΓöÇΓöÇ types/
+Γöé   Γöé   Γö£ΓöÇΓöÇ App.tsx
+Γöé   Γöé   Γö£ΓöÇΓöÇ main.tsx
+Γöé   Γöé   ΓööΓöÇΓöÇ index.css
+Γöé   Γö£ΓöÇΓöÇ index.html
+Γöé   Γö£ΓöÇΓöÇ package.json
+Γöé   Γö£ΓöÇΓöÇ vite.config.ts
+Γöé   ΓööΓöÇΓöÇ tsconfig.json
+Γö£ΓöÇΓöÇ docker-compose.yml
+ΓööΓöÇΓöÇ Dockerfile
 ```
 Important: The tree describes the intended organization, not proof that every file exists. Your current backend has included "main.py", "requirements.txt", "app/api/analysis.py", "app/api/router.py", "app/core/config.py", and a brand-rules service in progress. Add the other files as you implement them, and retain the actual paths used by your repository.
 
@@ -210,11 +210,11 @@ Module| Responsibility
 
 8. Team Members and Responsibilities
 
-Team: The Innovators — 6 members
+Team: The Innovators ΓÇö 6 members
 
 Responsibilities are assigned according to the team's previously discussed division. The exact deliverables below are proposed task ownership, so the team can adjust them based on availability and progress.
 
-Member 1 — S. Guru Poojitha
+Member 1 ΓÇö S. Guru Poojitha
 
 Role: Backend Development and Integration
 
@@ -226,7 +226,7 @@ Role: Backend Development and Integration
 
 Primary deliverables: Working analysis API, rule-validation service, structured responses, and backend integration.
 
-Member 2 — M. Spurthi
+Member 2 ΓÇö M. Spurthi
 
 Role: Data and AI Support
 
@@ -238,7 +238,7 @@ Role: Data and AI Support
 
 Primary deliverables: Test datasets, sample guidelines, evaluation cases, and AI-quality feedback.
 
-Member 3 — P. Sudeshna
+Member 3 ΓÇö P. Sudeshna
 
 Role: Frontend Development
 
@@ -250,7 +250,7 @@ Role: Frontend Development
 
 Primary deliverables: Functional frontend screens and API-connected analysis results.
 
-Member 4 — V. Mokshagna
+Member 4 ΓÇö V. Mokshagna
 
 Role: AI Analysis and Explainability
 
@@ -262,7 +262,7 @@ Role: AI Analysis and Explainability
 
 Primary deliverables: AI-analysis service, structured findings, and evaluation examples.
 
-Member 5 — S. Rahul Bangar
+Member 5 ΓÇö S. Rahul Bangar
 
 Role: Brand Rules and Quality Assurance
 
@@ -274,7 +274,7 @@ Role: Brand Rules and Quality Assurance
 
 Primary deliverables: Rule definitions, validation tests, and quality reports.
 
-Member 6 — S. Sarasij Reddy
+Member 6 ΓÇö S. Sarasij Reddy
 
 Role: Scoring, Evaluation and Documentation
 
@@ -505,4 +505,10 @@ S. Sarasij Reddy| Scoring, evaluation and documentation
 
 Developed as part of the Inkloom AI hackathon.
 
-TrueMark — Make every brand interaction consistent, clear, and accountable.
+TrueMark ΓÇö Make every brand interaction consistent, clear, and accountable.
+
+## Analyzer and Evaluation Module
+
+Adds a rule-based analyzer for potential privacy violations and unsupported claims, plus evaluation tools for validating data, matching findings, calculating metrics, and generating reports.
+
+Run tests with `pytest tests/ -v`.
