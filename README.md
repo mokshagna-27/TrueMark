@@ -134,50 +134,55 @@ The following is the target repository structure, based on the backend files alr
 ## Project Structure
 
 ```text
+## Project Structure
+
+```text
 TrueMark/
-Γö£ΓöÇΓöÇ README.md
-Γö£ΓöÇΓöÇ .gitignore
-Γö£ΓöÇΓöÇ .env.example
-Γö£ΓöÇΓöÇ backend/
-Γöé   Γö£ΓöÇΓöÇ main.py
-Γöé   Γö£ΓöÇΓöÇ requirements.txt
-Γöé   Γö£ΓöÇΓöÇ app/
-Γöé   Γöé   Γö£ΓöÇΓöÇ __init__.py
-Γöé   Γöé   Γö£ΓöÇΓöÇ api/
-Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ __init__.py
-Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ router.py
-Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ analysis.py
-Γöé   Γöé   Γö£ΓöÇΓöÇ core/
-Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ config.py
-Γöé   Γöé   Γö£ΓöÇΓöÇ models/
-Γöé   Γöé   Γö£ΓöÇΓöÇ schemas/
-Γöé   Γöé   Γö£ΓöÇΓöÇ services/
-Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ brand_rules.py
-Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ consistency.py
-Γöé   Γöé   Γöé   Γö£ΓöÇΓöÇ ai_analysis.py
-Γöé   Γöé   Γöé   ΓööΓöÇΓöÇ scoring.py
-Γöé   Γöé   Γö£ΓöÇΓöÇ db/
-Γöé   Γöé   ΓööΓöÇΓöÇ utils/
-Γöé   Γö£ΓöÇΓöÇ tests/
-Γöé   Γöé   Γö£ΓöÇΓöÇ test_analysis.py
-Γöé   Γöé   ΓööΓöÇΓöÇ test_brand_rules.py
-Γöé   ΓööΓöÇΓöÇ uploads/
-Γö£ΓöÇΓöÇ frontend/
-Γöé   Γö£ΓöÇΓöÇ public/
-Γöé   Γö£ΓöÇΓöÇ src/
-Γöé   Γöé   Γö£ΓöÇΓöÇ components/
-Γöé   Γöé   Γö£ΓöÇΓöÇ pages/
-Γöé   Γöé   Γö£ΓöÇΓöÇ services/
-Γöé   Γöé   Γö£ΓöÇΓöÇ types/
-Γöé   Γöé   Γö£ΓöÇΓöÇ App.tsx
-Γöé   Γöé   Γö£ΓöÇΓöÇ main.tsx
-Γöé   Γöé   ΓööΓöÇΓöÇ index.css
-Γöé   Γö£ΓöÇΓöÇ index.html
-Γöé   Γö£ΓöÇΓöÇ package.json
-Γöé   Γö£ΓöÇΓöÇ vite.config.ts
-Γöé   ΓööΓöÇΓöÇ tsconfig.json
-Γö£ΓöÇΓöÇ docker-compose.yml
-ΓööΓöÇΓöÇ Dockerfile
+|-- README.md
+|-- .gitignore
+|-- .env.example
+|-- backend/
+|   |-- main.py
+|   |-- requirements.txt
+|   |-- app/
+|   |   |-- __init__.py
+|   |   |-- api/
+|   |   |   |-- __init__.py
+|   |   |   |-- router.py
+|   |   |   `-- analysis.py
+|   |   |-- core/
+|   |   |   `-- config.py
+|   |   |-- models/
+|   |   |-- schemas/
+|   |   |-- services/
+|   |   |   |-- brand_rules.py
+|   |   |   |-- consistency.py
+|   |   |   |-- ai_analysis.py
+|   |   |   `-- scoring.py
+|   |   |-- db/
+|   |   `-- utils/
+|   |-- tests/
+|   |   |-- test_analysis.py
+|   |   `-- test_brand_rules.py
+|   `-- uploads/
+|-- frontend/
+|   |-- public/
+|   |-- src/
+|   |   |-- components/
+|   |   |-- pages/
+|   |   |-- services/
+|   |   |-- types/
+|   |   |-- App.tsx
+|   |   |-- main.tsx
+|   |   `-- index.css
+|   |-- index.html
+|   |-- package.json
+|   |-- vite.config.ts
+|   `-- tsconfig.json
+|-- docker-compose.yml
+`-- Dockerfile
+```
+
 ```
 Important: The tree describes the intended organization, not proof that every file exists. Your current backend has included "main.py", "requirements.txt", "app/api/analysis.py", "app/api/router.py", "app/core/config.py", and a brand-rules service in progress. Add the other files as you implement them, and retain the actual paths used by your repository.
 
