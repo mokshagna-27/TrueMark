@@ -125,54 +125,37 @@ The rule engine and AI analysis service have complementary responsibilities. Det
 
 The following is the target repository structure, based on the backend files already started and the frontend architecture planned for the project.
 
+## Project Structure
+
+```text
 TrueMark/
-│
 ├── README.md
 ├── .gitignore
 ├── .env.example
-├── .venv/                         # Local virtual environment; do not commit
-│
 ├── backend/
 │   ├── main.py
 │   ├── requirements.txt
-│   │
 │   ├── app/
 │   │   ├── __init__.py
-│   │   │
 │   │   ├── api/
 │   │   │   ├── __init__.py
 │   │   │   ├── router.py
 │   │   │   └── analysis.py
-│   │   │
 │   │   ├── core/
-│   │   │  
 │   │   │   └── config.py
-│   │   │
 │   │   ├── models/
-│   │   │   └── [database models]
-│   │   │
 │   │   ├── schemas/
-│   │   │   └── [request and response schemas]
-│   │   │
 │   │   ├── services/
 │   │   │   ├── brand_rules.py
 │   │   │   ├── consistency.py
 │   │   │   ├── ai_analysis.py
 │   │   │   └── scoring.py
-│   │   │
 │   │   ├── db/
-│   │   │   └── [database connection and session]
-│   │   │
 │   │   └── utils/
-│   │       └── [shared utilities]
-│   │
 │   ├── tests/
 │   │   ├── test_analysis.py
 │   │   └── test_brand_rules.py
-│   │
 │   └── uploads/
-│       └── .gitkeep
-│
 ├── frontend/
 │   ├── public/
 │   ├── src/
@@ -183,15 +166,13 @@ TrueMark/
 │   │   ├── App.tsx
 │   │   ├── main.tsx
 │   │   └── index.css
-│   │
 │   ├── index.html
 │   ├── package.json
 │   ├── vite.config.ts
 │   └── tsconfig.json
-│
 ├── docker-compose.yml
 └── Dockerfile
-
+```
 Important: The tree describes the intended organization, not proof that every file exists. Your current backend has included "main.py", "requirements.txt", "app/api/analysis.py", "app/api/router.py", "app/core/config.py", and a brand-rules service in progress. Add the other files as you implement them, and retain the actual paths used by your repository.
 
 7.1 Backend Responsibilities by Module
