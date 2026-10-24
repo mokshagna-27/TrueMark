@@ -87,6 +87,9 @@ Database clarification: PostgreSQL with pgvector is the proposed database archit
 
 The planned request flow is:
 
+## System Architecture
+
+```text
 User
   |
   v
@@ -104,6 +107,7 @@ FastAPI Backend
   +---- AI Analysis Service
   |         |
   |         +---- LLM API
+  |         |
   |         +---- Guideline Retrieval
   |
   +---- Finding Aggregation and Scoring
@@ -118,6 +122,8 @@ Structured Analysis Results
   |
   v
 Frontend Results, Recommendations and Reports
+```
+
 
 The rule engine and AI analysis service have complementary responsibilities. Deterministic rules handle explicit requirements, while the AI service helps interpret contextual issues. The backend combines their outputs into a structured result for users to review.
 
