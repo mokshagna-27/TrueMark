@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.analysis import router as analysis_router
 from app.api.router import router as base_router
 from app.api.core.config import settings
+from app.api.versions_router import router as versions_router
+from app.api.core.database import Base, engine
+from app.api.versions import ContentVersion
 
 
 app = FastAPI(
@@ -37,7 +40,15 @@ app.include_router(
     analysis_router,
     prefix=settings.API_PREFIX,
 )
+app.include_router(
+    versions_router,
+    prefix=settings.API_PREFIX,
+)
 
+
+@app.on_event("startup")
+def initialize_database():
+    Base.metadata.create_all(bind=engine)
 
 @app.get("/", tags=["System"])
 def home():
