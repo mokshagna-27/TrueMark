@@ -1,19 +1,22 @@
 
 import os
+from pathlib import Path
 
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
+# Load the .env file from the TrueMark project root.
+PROJECT_ROOT = Path(__file__).resolve().parents[4]
+load_dotenv(PROJECT_ROOT / ".env")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     raise RuntimeError(
-        "DATABASE_URL is missing. Configure it in Vercel "
-        "Environment Variables or your local .env file."
+        "DATABASE_URL is missing. Check the .env file in your project root."
     )
 
-# Use the psycopg 3 driver installed in backend/requirements.txt.
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace(
         "postgres://", "postgresql+psycopg://", 1
@@ -36,3 +39,4 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+

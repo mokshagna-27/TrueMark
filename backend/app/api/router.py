@@ -15,6 +15,8 @@ class BrandProfileCreate(BaseModel):
     brand_name: str = Field(..., min_length=1, max_length=100)
     required_terms: list[str] = Field(default_factory=list)
     forbidden_terms: list[str] = Field(default_factory=list)
+    brand_colors: list[str] = Field(default_factory=list)
+    reference_logo_base64: str | None = Field(default=None)
     brand_voice: str = Field(
         default="professional",
         min_length=1,

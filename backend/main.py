@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.analysis import router as analysis_router
+from app.api.file_verification import router as file_verification_router
 from app.api.router import router as base_router
 from app.api.core.config import settings
 from app.api.versions_router import router as versions_router
@@ -23,7 +24,10 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "https://true-mark-three.vercel.app",
+        "https://true-mark-k8xeei71q-mokshagna-27.vercel.app",
+        "https://true-mark.vercel.app",
     ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,6 +42,10 @@ app.include_router(
 # Brand analysis endpoints: /api/v1/analysis/text
 app.include_router(
     analysis_router,
+    prefix=settings.API_PREFIX,
+)
+app.include_router(
+    file_verification_router,
     prefix=settings.API_PREFIX,
 )
 app.include_router(
