@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import AnalysisContent from "./components/analysis/analysiscontent";
 import BrandGuidelines from "./components/brandguidelines";
+import RoundThree from "./components/RoundThree";
 import "./App.css";
 
 /* =========================
@@ -15,6 +16,7 @@ const navigation = [
   { name: "Review & Approval", icon: "✓" },
   { name: "Version History", icon: "◷" },
   { name: "Governance Insights", icon: "▥" },
+  { name: "Round 3 Control Center", icon: "✦" },
 ];
 
 const descriptions: Record<string, string> = {
@@ -213,6 +215,8 @@ function App() {
             />
           ) : activePage === "Governance Insights" ? (
             <GovernanceInsights />
+          ) : activePage === "Round 3 Control Center" ? (
+            <RoundThree />
           ) : (
             <FeaturePage
               page={activePage}
@@ -1444,12 +1448,35 @@ function VersionHistory() {
   const [notice, setNotice] = useState("");
 
   useEffect(() => {
+  async function loadVersions() {
     try {
-      localStorage.setItem(VERSION_STORAGE_KEY, JSON.stringify(versions));
-    } catch {
-      setNotice("Unable to save versions. Browser storage may be full.");
+      const response = await fetch(
+        "https://truemark-blue.vercel.app/api/v1/versions"
+      );
+
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status}`);
+      }
+
+      const data: ContentVersion[] = await response.json();
+      setVersions(data);
+      setNotice("");
+    } catch (error) {
+      console.error("Failed to load versions:", error);
+      setNotice("Could not load versions from the server. Showing locally saved versions.");
     }
-  }, [versions]);
+  }
+
+  loadVersions();
+}, []);
+
+useEffect(() => {
+  try {
+    localStorage.setItem(VERSION_STORAGE_KEY, JSON.stringify(versions));
+  } catch {
+    setNotice("Unable to save versions. Browser storage may be full.");
+  }
+}, [versions]);
 
   const documents = useMemo(() => {
     const unique = new Map<string, string>();
@@ -1491,7 +1518,8 @@ function VersionHistory() {
     .filter((version) => compareIds.includes(version.id))
     .sort((a, b) => a.versionNumber - b.versionNumber);
 
-  function saveVersion(event: FormEvent<HTMLFormElement>) {
+  
+  async function saveVersion(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setNotice("");
 
@@ -1536,11 +1564,40 @@ function VersionHistory() {
       createdAt: new Date().toISOString(),
     };
 
-    setVersions((previous) => [newVersion, ...previous]);
-    setEditingDocumentId(documentId);
-    setNote("");
-    setNotice(`Version ${nextVersionNumber} saved successfully.`);
+    try {
+      const response = await fetch(
+        "https://truemark-blue.vercel.app/api/v1/versions",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: newVersion.id,
+            document_id: newVersion.documentId,
+            document_title: newVersion.documentTitle,
+            version_number: newVersion.versionNumber,
+            content: newVersion.content,
+            note: newVersion.note,
+            created_at: newVersion.createdAt,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Server returned ${response.status}`);
+      }
+
+      setVersions((previous) => [newVersion, ...previous]);
+      setEditingDocumentId(documentId);
+      setNote("");
+      setNotice(`Version ${nextVersionNumber} saved successfully.`);
+    } catch (error) {
+      console.error("Version save failed:", error);
+      setNotice(
+        "Could not save to the server. Your version has not been confirmed as saved."
+      );
+    }
   }
+
 
   function startNewDocument() {
     setTitle("");
@@ -1562,12 +1619,23 @@ function VersionHistory() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function deleteVersion(version: ContentVersion) {
-    const confirmed = window.confirm(
-      `Delete version ${version.versionNumber} of "${version.documentTitle}"?`
+  
+async function deleteVersion(version: ContentVersion) {
+  const confirmed = window.confirm(
+    `Delete version ${version.versionNumber} of "${version.documentTitle}"?`
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const response = await fetch(
+      `https://truemark-blue.vercel.app/api/v1/versions/${version.id}`,
+      { method: "DELETE" }
     );
 
-    if (!confirmed) return;
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}`);
+    }
 
     setVersions((previous) =>
       previous.filter((item) => item.id !== version.id)
@@ -1577,8 +1645,13 @@ function VersionHistory() {
       previous.filter((id) => id !== version.id)
     );
 
-    setNotice("Version deleted.");
+    setNotice("Version deleted successfully.");
+  } catch (error) {
+    console.error("Version deletion failed:", error);
+    setNotice("Could not delete the version from the server.");
   }
+}
+
 
   function toggleCompare(id: string) {
     setCompareIds((previous) => {

@@ -1,55 +1,11 @@
-<<<<<<< HEAD
-# Python bytecode and cache
+.venv/
+venv/
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
 .pytest_cache/
-.coverage
-htmlcov/
-
-# Virtual Environments
-venv/
-.venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Environment variables and secrets
 .env
 .env.*
 !.env.example
-
-# Local Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# IDE / Editor artifacts
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Frontend dependencies and build output
-node_modules/
-dist/
-build/
-=======
-﻿__pycache__/
-*.py[cod]
-.venv/
-venv/
-.env
-.env.*
-!.env.example
-.pytest_cache/
-evaluation/reports/
-evaluation_backup*/
-*.backup
->>>>>>> eea379f (Add TrueMark analyzer and evaluation improvements)
+!.env.local.example
+frontend/node_modules/
+frontend/dist/
